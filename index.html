@@ -22,6 +22,14 @@
 
   <div class="layout">
     <nav class="call-list" aria-label="Calls">
+      <div class="list-controls">
+        <div id="filterBar" class="filter-bar" role="group" aria-label="Filter calls by status"></div>
+        <label class="sort-label" for="sortSel">Sort by</label>
+        <select id="sortSel">
+          <option value="id">Call ID</option>
+          <option value="priority">Priority score (highest first)</option>
+        </select>
+      </div>
       <ul id="callList"></ul>
     </nav>
     <main id="main" class="main"></main>
