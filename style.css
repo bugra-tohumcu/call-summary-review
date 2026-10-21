@@ -15,7 +15,7 @@
   --idle-bg: #ececE8;
   --sel-bg: #fff3bf;
   --sel-border: #b8962e;
-  /* Issue types: always shown with icon + name, never colour alone */
+  /* Issue types: always shown with their name, never colour alone */
   --t-contradicted: #b42318; --t-contradicted-bg: #fdecea;
   --t-unsupported: #6941c6;  --t-unsupported-bg: #f2edfb;
   --t-omitted: #8a5300;      --t-omitted-bg: #fdf1dc;
@@ -80,6 +80,15 @@ button.link.danger { color: var(--bad); }
 .sort-label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 0.2rem; }
 .list-controls select { font-size: 0.85rem; padding: 0.3rem 0.4rem; }
 .list-empty { padding: 0.5rem 0.65rem; font-size: 0.9rem; }
+.search-box {
+  width: 100%;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.call-hit { font-size: 0.78rem; color: var(--accent); font-style: italic; }
 
 /* Layout */
 .layout { flex: 1; display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 0; }
@@ -202,11 +211,11 @@ button.link.danger { color: var(--bad); }
 .stext:hover { text-decoration: underline dotted; text-underline-offset: 3px; }
 .finding-flag { grid-column: 2; font-size: 0.82rem; font-weight: 600; color: var(--text); }
 .whole-count { margin: 0.6rem 0 0; font-size: 0.85rem; font-weight: 600; }
-.type-icon { display: inline-block; min-width: 1.2em; text-align: center; font-weight: 700; margin-right: 0.15rem; border-radius: 4px; }
-.type-icon.type-contradicted { color: var(--t-contradicted); background: var(--t-contradicted-bg); }
-.type-icon.type-unsupported { color: var(--t-unsupported); background: var(--t-unsupported-bg); }
-.type-icon.type-omitted { color: var(--t-omitted); background: var(--t-omitted-bg); }
-.type-icon.type-rule { color: var(--t-rule); background: var(--t-rule-bg); }
+.type-name { font-weight: 700; }
+.type-name.type-contradicted { color: var(--t-contradicted); }
+.type-name.type-unsupported { color: var(--t-unsupported); }
+.type-name.type-omitted { color: var(--t-omitted); }
+.type-name.type-rule { color: var(--t-rule); }
 
 /* Findings */
 .findings { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.75rem; }
@@ -232,7 +241,10 @@ button.link.danger { color: var(--bad); }
 .impact-tag { background: var(--surface); border: 1px solid var(--border); }
 .impact-high { border-color: var(--text); }
 .finding-where { font-size: 0.85rem; color: var(--muted); }
-.finding-head .link { margin-left: auto; font-size: 0.85rem; }
+.finding-actions { margin-left: auto; display: inline-flex; gap: 0.75rem; font-size: 0.85rem; }
+.finding.is-editing { background: var(--sel-bg); }
+.editing-label { font-size: 0.8rem; font-weight: 700; color: #5b4600; }
+.finding-form.is-editing { border: 2px solid var(--sel-border); }
 .finding-quote {
   margin: 0.5rem 0;
   padding-left: 0.75rem;
